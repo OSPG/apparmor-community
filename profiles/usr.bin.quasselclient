@@ -1,0 +1,54 @@
+# Last Modified: Sat Aug 30 12:56:14 2025
+include <tunables/global>
+
+/usr/bin/quasselclient {
+  include <abstractions/base>
+  include <abstractions/enchant>
+  include <abstractions/gio-open>
+  include <abstractions/gnome>
+  include <abstractions/kde>
+  include <abstractions/openssl>
+  include <abstractions/qt5>
+  include <abstractions/ssl_certs>
+  include <abstractions/vulkan>
+
+  /dev/udmabuf rw,
+  /etc/host.conf r,
+  /etc/hosts r,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /etc/resolv.conf r,
+  /proc/sys/kernel/random/boot_id r,
+  /sys/devices/** r,
+  /usr/bin/quasselclient mr,
+  /usr/share/color-schemes/BreezeLight.colors r,
+  /usr/share/icons/breeze/index.theme r,
+  /usr/share/icons/breeze_cursors/cursors/ r,
+  /usr/share/icons/breeze_cursors/index.theme r,
+  /usr/share/icons/hicolor/index.theme r,
+  /usr/share/mime/packages/ r,
+  /usr/share/quassel/** r,
+  /usr/share/quassel/translations/*.qm r,
+  owner /home/*/ r,
+  owner /home/*/.cache/icon-cache.kcache rw,
+  owner /home/*/.cache/mesa_shader_cache_db/** k,
+  owner /home/*/.cache/mesa_shader_cache_db/** rw,
+  owner /home/*/.cache/mesa_shader_cache_db/index rw,
+  owner /home/*/.config/** rw,
+  owner /home/*/.config/breezerc r,
+  owner /home/*/.config/fontconfig/fonts.conf r,
+  owner /home/*/.config/kcminputrc r,
+  owner /home/*/.config/kdeglobals r,
+  owner /home/*/.config/kwinrc r,
+  owner /home/*/.config/quassel-irc.org/* k,
+  owner /home/*/.config/quassel-irc.org/* l,
+  owner /home/*/.config/quassel-irc.org/* rw,
+  owner /home/*/.config/quasselrc r,
+  owner /home/*/.config/quasselrc.lock r,
+  owner /home/*/.config/quasselrc.lock w,
+  owner /home/*/.local/share/icons/hicolor/icon-theme.cache r,
+  owner /home/*/.local/share/mime/generic-icons r,
+  owner /home/*/.local/share/mime/mime.cache r,
+  owner /home/*/.local/share/mime/packages/ r,
+
+}

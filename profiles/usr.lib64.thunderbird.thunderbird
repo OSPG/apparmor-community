@@ -1,0 +1,52 @@
+# Last Modified: Fri Aug 29 23:40:17 2025
+include <tunables/global>
+
+/usr/lib64/thunderbird/thunderbird {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/enchant>
+  include <abstractions/fonts>
+  include <abstractions/gio-open>
+  include <abstractions/gnome>
+  include <abstractions/user-tmp>
+
+  capability sys_admin,
+
+  /dev/ r,
+  /etc/gai.conf r,
+  /etc/host.conf r,
+  /etc/hosts r,
+  /etc/mailcap r,
+  /etc/mime.types r,
+  /etc/nsswitch.conf r,
+  /etc/opensc.conf r,
+  /etc/passwd r,
+  /etc/resolv.conf r,
+  /sys/bus/pci/devices/ r,
+  /sys/devices/** r,
+  /sys/devices/system/cpu/** r,
+  /sys/devices/system/cpu/cpufreq/** r,
+  /sys/devices/virtual/dmi/id/* r,
+  /usr/lib64/thunderbird/glxtest mrix,
+  /usr/lib64/thunderbird/thunderbird Px,
+  /usr/lib64/thunderbird/thunderbird mr,
+  /usr/share/icons/** r,
+  /usr/share/xkeyboard-config-2/** r,
+  /usr/share/xkeyboard-config-2/keycodes/* r,
+  owner /home/*/.cache/mesa_shader_cache_db/** rwk,
+  owner /home/*/.cache/thunderbird/** rw,
+  owner /home/*/.config/dconf/user r,
+  owner /home/*/.config/user-dirs.dirs r,
+  owner /home/*/.thunderbird/** rwk,
+  owner /proc/*/cgroup r,
+  owner /proc/*/mountinfo r,
+  owner /proc/*/oom_score_adj w,
+  owner /proc/*/stat r,
+  owner /proc/*/statm r,
+  owner /proc/*/task/** r,
+  owner /run/user/1000/* r,
+  owner /run/user/1000/* w,
+  owner /run/user/1000/dconf/user rw,
+  owner /run/user/1000/pulse/ rw,
+
+}
