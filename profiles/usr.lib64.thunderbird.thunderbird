@@ -1,4 +1,4 @@
-# Last Modified: Fri Aug 29 23:40:17 2025
+# Last Modified: Sat Aug 30 13:20:15 2025
 include <tunables/global>
 
 /usr/lib64/thunderbird/thunderbird {
@@ -27,9 +27,11 @@ include <tunables/global>
   /sys/devices/system/cpu/** r,
   /sys/devices/system/cpu/cpufreq/** r,
   /sys/devices/virtual/dmi/id/* r,
+  /usr/bin/firefox Px,
   /usr/lib64/thunderbird/glxtest mrix,
   /usr/lib64/thunderbird/thunderbird Px,
   /usr/lib64/thunderbird/thunderbird mr,
+  /usr/libexec/gio-launch-desktop mrix,
   /usr/share/icons/** r,
   /usr/share/xkeyboard-config-2/** r,
   /usr/share/xkeyboard-config-2/keycodes/* r,
@@ -37,7 +39,10 @@ include <tunables/global>
   owner /home/*/.cache/thunderbird/** rw,
   owner /home/*/.config/dconf/user r,
   owner /home/*/.config/user-dirs.dirs r,
-  owner /home/*/.thunderbird/** rwk,
+  owner /home/*/.thunderbird/* r,
+  owner /home/*/.thunderbird/jzmx3gr9.default/ r,
+  owner /home/*/.thunderbird/jzmx3gr9.default/* rwk,
+  owner /home/*/.thunderbird/jzmx3gr9.default/** rwk,
   owner /proc/*/cgroup r,
   owner /proc/*/mountinfo r,
   owner /proc/*/oom_score_adj w,
