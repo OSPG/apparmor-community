@@ -1,0 +1,54 @@
+# Last Modified: Sat Aug 30 17:43:20 2025
+abi <abi/3.0>,
+
+include <tunables/global>
+
+/usr/bin/qbittorrent {
+  include <abstractions/base>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/kde-open5>
+  include <abstractions/nameservice>
+  include <abstractions/nvidia>
+  include <abstractions/opencl-pocl>
+  include <abstractions/user-tmp>
+  include <abstractions/vulkan>
+
+  network netlink dgram,
+
+  /dev/char/* w,
+  /etc/env.d/python/config r,
+  /etc/fstab r,
+  /etc/python-exec/python-exec.conf r,
+  /home/ r,
+  /proc/modules r,
+  /sys/block/ r,
+  /sys/bus/pci/devices/ r,
+  /sys/devices/** r,
+  /tmp/** r,
+  /usr/bin/nvidia-modprobe Ux,
+  /usr/bin/python-exec2c mrix,
+  /usr/bin/qbittorrent mr,
+  /usr/lib64/libexec/kf5/* Ux,
+  /usr/share/color-schemes/* r,
+  /usr/share/qt6/translations/*.qm r,
+  owner /home/*/ r,
+  owner /home/*/* r,
+  owner /home/*/** r,
+  owner /home/*/.cache/mesa_shader_cache_db/** w,
+  owner /home/*/.cache/mesa_shader_cache_db/index w,
+  owner /home/*/.config/** rl,
+  owner /home/*/.config/QtProject.conf.lock k,
+  owner /home/*/.config/breezerc r,
+  owner /home/*/.config/kdeglobals r,
+  owner /home/*/.config/qBittorrent/** rwlk,
+  owner /home/*/.config/qBittorrentrc r,
+  owner /home/*/.local/share/data/qBittorrent/** rwl,
+  owner /home/*/Downloads/** rw,
+  owner /home/*/Music/** rw,
+  owner /proc/*/cmdline r,
+  owner /proc/*/comm r,
+  owner /proc/*/mountinfo r,
+  owner /proc/*/mounts r,
+  owner /run/user/1000/* wl,
+
+}

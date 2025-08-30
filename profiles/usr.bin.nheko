@@ -1,0 +1,39 @@
+# Last Modified: Sat Aug 30 20:42:00 2025
+include <tunables/global>
+
+/usr/bin/nheko {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/dri-common>
+  include <abstractions/enchant>
+  include <abstractions/fonts>
+  include <abstractions/nvidia>
+  include <abstractions/openssl>
+  include <abstractions/ssl_certs>
+  include <abstractions/user-tmp>
+  include <abstractions/vulkan>
+
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /etc/resolv.conf r,
+  /proc/sys/kernel/random/boot_id r,
+  /sys/devices/** r,
+  /usr/bin/nheko mr,
+  /usr/share/icons/** r,
+  /usr/share/qt6/translations/*.qm r,
+  owner /home/*/.cache/** rw,
+  owner /home/*/.cache/fontconfig/* r,
+  owner /home/*/.cache/mesa_shader_cache_db/** rwk,
+  owner /home/*/.cache/nheko/** wl,
+  owner /home/*/.config/nheko/* rwlk,
+  owner /home/*/.config/** r,
+  owner /home/*/.config/pulse/cookie rk,
+  owner /home/*/.fonts/ r,
+  owner /home/*/.local/share/nheko/nheko/** rwk,
+  owner /home/*/.local/share/vulkan/implicit_layer.d/* r,
+  owner /proc/*/cmdline r,
+  owner /run/user/1000/* r,
+  owner /run/user/1000/pulse/ r,
+
+}

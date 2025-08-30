@@ -1,0 +1,38 @@
+# Last Modified: Sat Aug 30 20:49:03 2025
+include <tunables/global>
+
+/usr/bin/Telegram {
+  include <abstractions/audio>
+  include <abstractions/base>
+  include <abstractions/dri-common>
+  include <abstractions/fonts>
+  include <abstractions/gio-open>
+  include <abstractions/openssl>
+  include <abstractions/user-tmp>
+  include <abstractions/vulkan>
+
+  /dev/udmabuf rw,
+  /etc/nsswitch.conf r,
+  /etc/passwd r,
+  /proc/sys/kernel/random/boot_id r,
+  /sys/class/power_supply/ r,
+  /sys/devices/** r,
+  /usr/bin/Telegram mr,
+  /usr/share/color-schemes/* r,
+  /usr/share/icons/breeze/* r,
+  /usr/share/icons/breeze/apps/** r,
+  /usr/share/icons/hicolor/* r,
+  /usr/share/mime/packages/ r,
+  /usr/share/qt6/translations/*.qm r,
+  owner /home/*/.cache/mesa_shader_cache_db/** rwk,
+  owner /home/*/.config/* r,
+  owner /home/*/.local/share/TelegramDesktop/** rwlk,
+  owner /home/*/.local/share/icons/hicolor/* r,
+  owner /home/*/.local/share/mime/*/ r,
+  owner /home/*/.local/share/mime/mime.cache r,
+  owner /home/*/.local/share/mime/types r,
+  owner /proc/*/task/** rw,
+  owner /run/user/1000/* r,
+  owner /run/user/1000/pulse/ rw,
+
+}
