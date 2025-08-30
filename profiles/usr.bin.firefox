@@ -10,6 +10,7 @@ include <tunables/global>
   include <abstractions/gnome>
   include <abstractions/kde-open5>
   include <abstractions/postfix-common>
+  include <abstractions/ubuntu-browsers.d/plugins-common>
   include <abstractions/ubuntu-browsers.d/ubuntu-integration>
   include <abstractions/vulkan>
 
