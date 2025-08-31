@@ -1,4 +1,4 @@
-# Last Modified: Sat Aug 30 13:20:15 2025
+# Last Modified: Sun Aug 31 15:43:58 2025
 include <tunables/global>
 
 /usr/lib64/thunderbird/thunderbird {
@@ -49,6 +49,7 @@ include <tunables/global>
   owner /proc/*/stat r,
   owner /proc/*/statm r,
   owner /proc/*/task/** r,
+  owner /proc/*/uid_map w,
   owner /run/user/1000/* r,
   owner /run/user/1000/* w,
   owner /run/user/1000/dconf/user rw,

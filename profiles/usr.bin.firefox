@@ -1,4 +1,4 @@
-# Last Modified: Sat Aug 30 19:51:32 2025
+# Last Modified: Sun Aug 31 15:46:07 2025
 include <tunables/global>
 
 /usr/bin/firefox {
@@ -16,6 +16,7 @@ include <tunables/global>
 
   capability sys_admin,
 
+  / r,
   /bin/basename mrix,
   /bin/bash ix,
   /bin/uname mrix,
@@ -32,7 +33,6 @@ include <tunables/global>
   /etc/resolv.conf r,
   /etc/timezone r,
   /etc/xdg/* r,
-  /home/*/** r,
   /sys/bus/pci/devices/ r,
   /sys/devices/** r,
   /usr/bin/firefox r,
@@ -45,11 +45,7 @@ include <tunables/global>
   /usr/share/xkeyboard-config-2/** r,
   owner /home/*/ r,
   owner /home/*/* r,
-  owner /home/*/.cache/* rw,
-  owner /home/*/.cache/mesa_shader_cache_db/** rwk,
-  owner /home/*/.cache/mozilla/** rw,
-  owner /home/*/.config/** r,
-  owner /home/*/.mozilla/firefox/** rwk,
+  owner /home/*/** rw,
   owner /proc/*/* r,
   owner /proc/*/* w,
   owner /proc/*/fd/ r,
