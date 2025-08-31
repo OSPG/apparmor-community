@@ -1,4 +1,4 @@
-# Last Modified: Sat Aug 30 17:43:20 2025
+# Last Modified: Sun Aug 31 10:58:18 2025
 abi <abi/3.0>,
 
 include <tunables/global>
@@ -27,15 +27,18 @@ include <tunables/global>
   /tmp/** r,
   /usr/bin/nvidia-modprobe Ux,
   /usr/bin/python-exec2c mrix,
+  /usr/bin/python3.* mrix,
   /usr/bin/qbittorrent mr,
   /usr/lib64/libexec/kf5/* Ux,
   /usr/share/color-schemes/* r,
   /usr/share/qt6/translations/*.qm r,
+  owner /dev/shm/* lrw,
   owner /home/*/ r,
   owner /home/*/* r,
   owner /home/*/** r,
   owner /home/*/.cache/mesa_shader_cache_db/** w,
   owner /home/*/.cache/mesa_shader_cache_db/index w,
+  owner /home/*/.cache/qBittorrent/*/ w,
   owner /home/*/.config/** rl,
   owner /home/*/.config/QtProject.conf.lock k,
   owner /home/*/.config/breezerc r,
@@ -49,6 +52,7 @@ include <tunables/global>
   owner /proc/*/comm r,
   owner /proc/*/mountinfo r,
   owner /proc/*/mounts r,
+  owner /proc/*/stat r,
   owner /run/user/1000/* wl,
 
 }
