@@ -9,6 +9,7 @@
   include <abstractions/enchant>
   include <abstractions/freedesktop.org>
   include <abstractions/kde-open5>
+  include <abstractions/xdg-desktop>
   include <abstractions/mesa>
   include <abstractions/nameservice>
   include <abstractions/opencl-pocl>
