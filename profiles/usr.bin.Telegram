@@ -2,22 +2,15 @@
 include <tunables/global>
 
 /usr/bin/Telegram {
-  include <abstractions/audio>
-  include <abstractions/base>
+  include <abstractions/desktop-app>
   include <abstractions/dri-common>
   include <abstractions/fonts>
-  include <abstractions/freedesktop.org>
   include <abstractions/gio-open>
-  include <abstractions/kde-open5>
-  include <abstractions/mesa>
-  include <abstractions/nameservice>
   include <abstractions/openssl>
-  include <abstractions/qt5>
   include <abstractions/user-tmp>
   include <abstractions/vulkan>
 
   /dev/udmabuf rw,
-  /etc/timezone r,
   /sys/class/power_supply/ r,
   /usr/bin/Telegram mr,
   /usr/share/color-schemes/* r,
