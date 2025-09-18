@@ -1,16 +1,12 @@
-# Last Modified: Sun Aug 31 15:43:58 2025
+# Last Modified: Fri Sep 19 00:53:14 2025
 include <tunables/global>
 
 /usr/lib64/thunderbird/thunderbird {
-  include <abstractions/audio>
   include <abstractions/base>
-  include <abstractions/enchant>
-  include <abstractions/fonts>
-  include <abstractions/gio-open>
-  include <abstractions/gnome>
-  include <abstractions/user-tmp>
+  include <abstractions/desktop-app>
 
   capability sys_admin,
+  capability sys_chroot,
 
   /dev/ r,
   /etc/gai.conf r,
@@ -39,17 +35,12 @@ include <tunables/global>
   owner /home/*/.cache/thunderbird/** rw,
   owner /home/*/.config/dconf/user r,
   owner /home/*/.config/user-dirs.dirs r,
-  owner @{HOME}/.thunderbird/** rwk,
-  owner /proc/*/cgroup r,
-  owner /proc/*/mountinfo r,
-  owner /proc/*/oom_score_adj w,
-  owner /proc/*/stat r,
-  owner /proc/*/statm r,
-  owner /proc/*/task/** r,
-  owner /proc/*/uid_map w,
+  owner @{PROC}/@{pid}/* rw,
+  owner @{PROC}/@{pid}/task/** r,
   owner /run/user/1000/* r,
   owner /run/user/1000/* w,
   owner /run/user/1000/dconf/user rw,
   owner /run/user/1000/pulse/ rw,
+  owner @{HOME}/.thunderbird/** rwk,
 
 }
