@@ -9,6 +9,7 @@
   include <abstractions/enchant>
   include <abstractions/freedesktop.org>
   include <abstractions/kde-open5>
+  include <abstractions/kde>
   include <abstractions/xdg-desktop>
   include <abstractions/mesa>
   include <abstractions/nameservice>
@@ -21,6 +22,7 @@
 
   #For KDE apps
   owner @{HOME}/.config/kcminputrc r,
+  owner @{HOME}/.config/kdedefaults/kcminputrc r,
   owner @{HOME}/.config/breezerc r,
   owner @{HOME}/.config/plasmarc r,
 
