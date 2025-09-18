@@ -1,21 +1,38 @@
-# Last Modified: Sat Aug 30 20:49:03 2025
+# Last Modified: Fri Sep 19 00:38:09 2025
 include <tunables/global>
 
 /usr/bin/Telegram {
   include <abstractions/desktop-app>
-  include <abstractions/dri-common>
   include <abstractions/fonts>
   include <abstractions/gio-open>
   include <abstractions/openssl>
   include <abstractions/user-tmp>
-  include <abstractions/vulkan>
 
   /dev/udmabuf rw,
+  /etc/fstab r,
   /sys/class/power_supply/ r,
   /usr/bin/Telegram mr,
-  /usr/share/color-schemes/* r,
-  owner /home/*/.config/** r,
-  owner /home/*/.local/share/TelegramDesktop/** rwlk,
+  /usr/share/thumbnailers/ r,
+  owner @{HOME}/.config/* rwkl,
+  owner @{HOME}/.local/share/* rw,
+  owner @{HOME}/.local/state/* rw,
+  owner /tmp/** rw,
+  owner /tmp/ r,
+  owner @{HOME}/ r,
+  owner @{HOME}/** r,
+  owner @{HOME}/*/.config/menus/ r,
+  owner @{HOME}/.cache/mozilla/** rw,
+  owner @{HOME}/.mozilla/firefox/** rwlk,
+  owner @{HOME}/Documents/** rw,
+  owner @{HOME}/Downloads/** rw,
+  owner @{HOME}/Pictures/** rw,
+  owner /proc/*/mountinfo r,
   owner /proc/*/task/** rw,
+  owner /run/user/1000/* l,
+  owner /run/user/1000/* w,
+  owner @{HOME}/.cache/TelegramDesktop/** rw,
+  owner @{HOME}/.cache/qtshadercache-x86_64-little_endian-lp64/* rw,
+  owner @{HOME}/.local/share/TelegramDesktop/ r,
+  owner @{HOME}/.local/share/TelegramDesktop/** rwlk,
 
 }
