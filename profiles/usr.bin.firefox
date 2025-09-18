@@ -1,4 +1,4 @@
-# Last Modified: Thu Sep 18 21:24:37 2025
+# Last Modified: Fri Sep 19 00:09:18 2025
 include <tunables/global>
 
 /usr/bin/firefox {
@@ -8,9 +8,11 @@ include <tunables/global>
   capability sys_admin,
   capability sys_chroot,
 
+  /.dumpfile r,
   /bin/basename mrix,
   /bin/uname mrix,
   /dev/ r,
+  /etc/fstab r,
   /etc/mailcap r,
   /etc/mime.types r,
   /etc/opensc.conf r,
@@ -25,9 +27,16 @@ include <tunables/global>
   @{PROC}/*/uid_map w,
   @{PROC}/@{pid}/* w,
   @{PROC}/@{pid}/** r,
+  owner /tmp/** rw,
+  owner /tmp/ r,
+  owner @{HOME}/ r,
+  owner @{HOME}/** r,
   owner @{HOME}/*/.config/menus/ r,
   owner @{HOME}/.cache/mozilla/** rw,
   owner @{HOME}/.mozilla/firefox/** rwlk,
+  owner @{HOME}/Documents/** rw,
+  owner @{HOME}/Downloads/** rw,
+  owner @{HOME}/Pictures/** rw,
   owner @{run}/user/*/* rw,
 
 }
