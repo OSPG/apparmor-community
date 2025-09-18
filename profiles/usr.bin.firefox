@@ -1,57 +1,33 @@
-# Last Modified: Sun Aug 31 15:46:07 2025
+# Last Modified: Thu Sep 18 21:24:37 2025
 include <tunables/global>
 
 /usr/bin/firefox {
   include <abstractions/base>
-  include <abstractions/bash>
-  include <abstractions/consoles>
-  include <abstractions/enchant>
-  include <abstractions/fonts>
-  include <abstractions/gnome>
-  include <abstractions/kde-open5>
-  include <abstractions/postfix-common>
-  include <abstractions/ubuntu-browsers.d/plugins-common>
-  include <abstractions/ubuntu-browsers.d/ubuntu-integration>
-  include <abstractions/vulkan>
+  include <abstractions/desktop-app>
 
   capability sys_admin,
+  capability sys_chroot,
 
-  / r,
   /bin/basename mrix,
-  /bin/bash ix,
   /bin/uname mrix,
   /dev/ r,
-  /etc/fstab r,
-  /etc/gai.conf r,
-  /etc/host.conf r,
-  /etc/hosts r,
   /etc/mailcap r,
   /etc/mime.types r,
-  /etc/nsswitch.conf r,
   /etc/opensc.conf r,
-  /etc/passwd r,
-  /etc/resolv.conf r,
-  /etc/timezone r,
-  /etc/xdg/* r,
-  /sys/bus/pci/devices/ r,
-  /sys/devices/** r,
+  /etc/xdg/taskmanagerrulesrc r,
+  /sys/devices/system/cpu/present r,
   /usr/bin/firefox r,
   /usr/bin/plasma-browser-integration-host mrix,
   /usr/lib64/firefox/firefox mrix,
   /usr/lib64/firefox/glxtest mrix,
   /usr/lib64/firefox/pingsender mrix,
-  /usr/share/color-schemes/* r,
-  /usr/share/qt6/translations/*.qm r,
   /usr/share/xkeyboard-config-2/** r,
-  owner /home/*/ r,
-  owner /home/*/* r,
-  owner /home/*/** rw,
-  owner /proc/*/* r,
-  owner /proc/*/* w,
-  owner /proc/*/fd/ r,
-  owner /proc/*/task/** r,
-  owner /run/user/1000/* r,
-  owner /run/user/1000/* w,
-  owner /run/user/1000/pulse/ rw,
+  @{PROC}/*/uid_map w,
+  @{PROC}/@{pid}/* w,
+  @{PROC}/@{pid}/** r,
+  owner @{HOME}/*/.config/menus/ r,
+  owner @{HOME}/.cache/mozilla/** rw,
+  owner @{HOME}/.mozilla/firefox/** rwlk,
+  owner @{run}/user/*/* rw,
 
 }

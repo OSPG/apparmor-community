@@ -2,18 +2,12 @@
 include <tunables/global>
 
 /usr/bin/quasselclient {
-  include <abstractions/base>
+  include <abstractions/desktop-app>
   include <abstractions/bash>
   include <abstractions/consoles>
-  include <abstractions/enchant>
   include <abstractions/gio-open>
-  include <abstractions/gnome>
-  include <abstractions/kde-open5>
-  include <abstractions/kde>
   include <abstractions/openssl>
-  include <abstractions/qt5>
   include <abstractions/ssl_certs>
-  include <abstractions/vulkan>
 
   /dev/udmabuf rw,
   /etc/host.conf r,
@@ -26,23 +20,10 @@ include <tunables/global>
   /usr/bin/firefox Px,
   /usr/bin/kde-open mrix,
   /usr/bin/quasselclient mr,
-  /usr/bin/xdg-open mrix,
-  /usr/share/color-schemes/BreezeLight.colors r,
-  /usr/share/icons/breeze/index.theme r,
-  /usr/share/icons/breeze_cursors/cursors/ r,
-  /usr/share/icons/breeze_cursors/index.theme r,
-  /usr/share/icons/hicolor/index.theme r,
-  /usr/share/knotifications6/* r,
-  /usr/share/mime/packages/ r,
-  /usr/share/qt6/translations/*.qm r,
   /usr/share/quassel/** r,
   /usr/share/quassel/translations/*.qm r,
   owner /home/*/ r,
   owner /home/*/.cache/* rw,
-  owner /home/*/.cache/icon-cache.kcache rw,
-  owner /home/*/.cache/mesa_shader_cache_db/** k,
-  owner /home/*/.cache/mesa_shader_cache_db/** rw,
-  owner /home/*/.cache/mesa_shader_cache_db/index rw,
   owner /home/*/.config/** rw,
   owner /home/*/.config/breezerc r,
   owner /home/*/.config/fontconfig/fonts.conf r,
@@ -56,11 +37,5 @@ include <tunables/global>
   owner /home/*/.config/quasselrc.lock r,
   owner /home/*/.config/quasselrc.lock w,
   owner /home/*/.local/share/* rwlk,
-  owner /home/*/.local/share/icons/hicolor/icon-theme.cache r,
-  owner /home/*/.local/share/mime/generic-icons r,
-  owner /home/*/.local/share/mime/mime.cache r,
-  owner /home/*/.local/share/mime/packages/ r,
-  owner /run/user/1000/* rw,
-  owner /run/user/1000/pulse/ rw,
 
 }
