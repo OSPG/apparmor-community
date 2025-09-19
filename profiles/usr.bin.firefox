@@ -1,4 +1,4 @@
-# Last Modified: Fri Sep 19 00:09:18 2025
+# Last Modified: Fri Sep 19 12:45:26 2025
 include <tunables/global>
 
 /usr/bin/firefox {
@@ -7,6 +7,7 @@ include <tunables/global>
 
   capability sys_admin,
   capability sys_chroot,
+  capability sys_ptrace,
 
   /.dumpfile r,
   /bin/basename mrix,
@@ -18,17 +19,21 @@ include <tunables/global>
   /etc/opensc.conf r,
   /etc/xdg/taskmanagerrulesrc r,
   /sys/devices/system/cpu/present r,
+  /sys/fs/cgroup/2/* r,
+  /usr/bin/ark Px,
   /usr/bin/firefox r,
   /usr/bin/plasma-browser-integration-host mrix,
   /usr/lib64/firefox/firefox mrix,
   /usr/lib64/firefox/glxtest mrix,
   /usr/lib64/firefox/pingsender mrix,
+  /usr/lib64/firefox/vaapitest mrix,
+  /usr/libexec/gio-launch-desktop mrix,
   /usr/share/xkeyboard-config-2/** r,
   @{PROC}/*/uid_map w,
   @{PROC}/@{pid}/* w,
   @{PROC}/@{pid}/** r,
-  owner /tmp/** rw,
   owner /tmp/ r,
+  owner /tmp/** rw,
   owner @{HOME}/ r,
   owner @{HOME}/** r,
   owner @{HOME}/*/.config/menus/ r,
