@@ -1,4 +1,4 @@
-# Last Modified: Fri Sep 19 00:38:09 2025
+# Last Modified: Sat Sep 20 14:08:56 2025
 include <tunables/global>
 
 /usr/bin/Telegram {
@@ -12,27 +12,29 @@ include <tunables/global>
   /etc/fstab r,
   /sys/class/power_supply/ r,
   /usr/bin/Telegram mr,
+  /usr/bin/xdg-open Px,
   /usr/share/thumbnailers/ r,
-  owner @{HOME}/.config/* rwkl,
-  owner @{HOME}/.local/share/* rw,
-  owner @{HOME}/.local/state/* rw,
-  owner /tmp/** rw,
+  owner /proc/*/mountinfo r,
+  owner /proc/*/stat r,
+  owner /proc/*/task/** rw,
+  owner /run/user/1000/* l,
+  owner /run/user/1000/* w,
   owner /tmp/ r,
+  owner /tmp/** rw,
   owner @{HOME}/ r,
   owner @{HOME}/** r,
   owner @{HOME}/*/.config/menus/ r,
+  owner @{HOME}/.cache/TelegramDesktop/** rw,
   owner @{HOME}/.cache/mozilla/** rw,
+  owner @{HOME}/.cache/qtshadercache-x86_64-little_endian-lp64/* rw,
+  owner @{HOME}/.config/* rwlk,
+  owner @{HOME}/.local/share/* rw,
+  owner @{HOME}/.local/share/TelegramDesktop/ rw,
+  owner @{HOME}/.local/share/TelegramDesktop/** rwlk,
+  owner @{HOME}/.local/state/* rw,
   owner @{HOME}/.mozilla/firefox/** rwlk,
   owner @{HOME}/Documents/** rw,
   owner @{HOME}/Downloads/** rw,
   owner @{HOME}/Pictures/** rw,
-  owner /proc/*/mountinfo r,
-  owner /proc/*/task/** rw,
-  owner /run/user/1000/* l,
-  owner /run/user/1000/* w,
-  owner @{HOME}/.cache/TelegramDesktop/** rw,
-  owner @{HOME}/.cache/qtshadercache-x86_64-little_endian-lp64/* rw,
-  owner @{HOME}/.local/share/TelegramDesktop/ r,
-  owner @{HOME}/.local/share/TelegramDesktop/** rwlk,
 
 }
