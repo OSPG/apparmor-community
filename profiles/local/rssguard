@@ -8,4 +8,6 @@ include <abstractions/mesa>
 include <abstractions/qt6>
 include <abstractions/ubuntu-browsers>
 
+capability sys_ptrace,
 owner "@{HOME}/.config/RSS Guard 4/**" rwlk,
+
