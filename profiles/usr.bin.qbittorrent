@@ -1,23 +1,42 @@
-# Last Modified: Sun Aug 31 10:58:18 2025
+# Last Modified: Fri Sep 19 19:22:56 2025
 abi <abi/3.0>,
 
 include <tunables/global>
 
 /usr/bin/qbittorrent {
+  include <abstractions/bash>
+  include <abstractions/dbus-session-strict>
   include <abstractions/desktop-app>
-  
+
   network netlink dgram,
 
-  /etc/env.d/python/config r,
-  /etc/python-exec/python-exec.conf r,
+  /dev/char/* w,
+  @{etc_ro}/env.d/python/config r,
+  @{etc_ro}/python-exec/python-exec.conf r,
+  @{sys}/block/ r,
+  /tmp/** r,
+  /usr/bin/gawk mrix,
+  /usr/bin/kde-open mrix,
+  /usr/bin/mpv Px,
+  /usr/bin/nvidia-modprobe Ux,
+  /usr/bin/okular Px,
   /usr/bin/python-exec2c mrix,
-  /usr/bin/python3.* mrix,
+  /usr/bin/python3.13 mrix,
+  /usr/bin/python3.14 mrix,
   /usr/bin/qbittorrent mr,
-  owner @{HOME}/.cache/qBittorrent/** rw,
-  owner @{HOME}/.config/** rl,
+  /usr/bin/xdg-open px,
+  owner /dev/shm/* rwl,
+  owner @{HOME}/.cache/qBittorrent/*/ rw,
   owner @{HOME}/.config/qBittorrent/** rwlk,
   owner @{HOME}/.config/qBittorrentrc rw,
   owner @{HOME}/.local/share/data/qBittorrent/** rwl,
-  owner @{HOME}/Downloads/** rw,
-  owner @{HOME}/Music/** rw,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rw,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/** rw,
+  owner @{PROC}/*/cmdline r,
+  owner @{PROC}/*/comm r,
+  owner @{PROC}/*/mountinfo r,
+  owner @{PROC}/*/mounts r,
+  owner @{PROC}/*/stat r,
+  owner @{run}/user/*/* wl,
+
 }

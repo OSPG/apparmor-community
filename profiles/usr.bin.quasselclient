@@ -2,40 +2,61 @@
 include <tunables/global>
 
 /usr/bin/quasselclient {
-  include <abstractions/desktop-app>
+  include <abstractions/base>
   include <abstractions/bash>
   include <abstractions/consoles>
+  include <abstractions/enchant>
   include <abstractions/gio-open>
+  include <abstractions/gnome>
+  include <abstractions/kde-open5>
+  include <abstractions/kde>
   include <abstractions/openssl>
+  include <abstractions/qt5>
   include <abstractions/ssl_certs>
+  include <abstractions/vulkan>
 
   /dev/udmabuf rw,
-  /etc/host.conf r,
-  /etc/hosts r,
-  /etc/nsswitch.conf r,
-  /etc/passwd r,
-  /etc/resolv.conf r,
-  /proc/sys/kernel/random/boot_id r,
-  /sys/devices/** r,
+  @{etc_ro}/host.conf r,
+  @{etc_ro}/hosts r,
+  @{etc_ro}/nsswitch.conf r,
+  @{etc_ro}/passwd r,
+  @{etc_ro}/resolv.conf r,
+  @{PROC}/sys/kernel/random/boot_id r,
+  @{sys}/devices/** r,
   /usr/bin/firefox Px,
   /usr/bin/kde-open mrix,
   /usr/bin/quasselclient mr,
+  /usr/bin/xdg-open mrix,
+  /usr/share/color-schemes/BreezeLight.colors r,
+  /usr/share/icons/breeze/index.theme r,
+  /usr/share/icons/breeze_cursors/cursors/ r,
+  /usr/share/icons/breeze_cursors/index.theme r,
+  /usr/share/icons/hicolor/index.theme r,
+  /usr/share/knotifications6/* r,
+  /usr/share/mime/packages/ r,
+  /usr/share/qt6/translations/*.qm r,
   /usr/share/quassel/** r,
   /usr/share/quassel/translations/*.qm r,
-  owner /home/*/ r,
-  owner /home/*/.cache/* rw,
-  owner /home/*/.config/** rw,
-  owner /home/*/.config/breezerc r,
-  owner /home/*/.config/fontconfig/fonts.conf r,
-  owner /home/*/.config/kcminputrc r,
-  owner /home/*/.config/kdeglobals r,
-  owner /home/*/.config/kwinrc r,
-  owner /home/*/.config/quassel-irc.org/* k,
-  owner /home/*/.config/quassel-irc.org/* l,
-  owner /home/*/.config/quassel-irc.org/* rw,
-  owner /home/*/.config/quasselrc r,
-  owner /home/*/.config/quasselrc.lock r,
-  owner /home/*/.config/quasselrc.lock w,
-  owner /home/*/.local/share/* rwlk,
+  owner @{HOME}/ r,
+  owner @{HOME}/.cache/* rw,
+  owner @{HOME}/.cache/icon-cache.kcache rw,
+  owner @{HOME}/.cache/mesa_shader_cache_db/** rwk,
+  owner @{HOME}/.cache/mesa_shader_cache_db/index rw,
+  owner @{HOME}/.config/** rw,
+  owner @{HOME}/.config/breezerc r,
+  owner @{HOME}/.config/fontconfig/fonts.conf r,
+  owner @{HOME}/.config/kcminputrc r,
+  owner @{HOME}/.config/kdeglobals r,
+  owner @{HOME}/.config/kwinrc r,
+  owner @{HOME}/.config/quassel-irc.org/* rwkl,
+  owner @{HOME}/.config/quasselrc r,
+  owner @{HOME}/.config/quasselrc.lock rw,
+  owner @{HOME}/.local/share/* rwlk,
+  owner @{HOME}/.local/share/icons/hicolor/icon-theme.cache r,
+  owner @{HOME}/.local/share/mime/generic-icons r,
+  owner @{HOME}/.local/share/mime/mime.cache r,
+  owner @{HOME}/.local/share/mime/packages/ r,
+  owner @{run}/user/*/* rw,
+  owner @{run}/user/*/pulse/ rw,
 
 }
