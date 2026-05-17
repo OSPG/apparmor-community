@@ -1,0 +1,70 @@
+# Last Modified: Sun May 17 14:10:00 2026
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/bin/eix-sync {
+  include <abstractions/base>
+  include <abstractions/bash>
+  include <abstractions/consoles>
+  include <abstractions/nameservice>
+
+  capability dac_override,
+  capability fowner,
+  capability setgid,
+  capability setuid,
+
+  /bin/bash ix,
+  /bin/bzip2 mrix,
+  /bin/bzip2-reference mrix,
+  /bin/cat mrix,
+  /bin/chmod mrix,
+  /bin/cp mrix,
+  /bin/date mrix,
+  /bin/gtar mrix,
+  /bin/mktemp mrix,
+  /bin/rm mrix,
+  /bin/tar mrix,
+  /etc/eix-sync.conf r,
+  /etc/eixrc/ r,
+  /etc/eixrc/** r,
+  /etc/portage/ r,
+  /etc/portage/** r,
+  /usr/bin/envsubst mrix,
+  /usr/share/eix/eix-functions r,
+  /usr/share/portage/config/ r,
+  /usr/share/portage/config/** r,
+  /usr/share/push/push.sh r,
+  /usr/share/quoter/quoter_pipe.sh r,
+  /usr/bin/eix mrix,
+  /usr/bin/eix-diff mrix,
+  /usr/bin/eix-header mrix,
+  /usr/bin/eix-remote mrix,
+  /usr/bin/eix-sync r,
+  /usr/bin/eix-test-obsolete mrix,
+  /usr/bin/eix-update mrix,
+  /usr/bin/emerge Ux,
+  /usr/bin/emerge-delta-webrsync Ux,
+  /usr/bin/emerge-webrsync Ux,
+  /usr/bin/gettext mrix,
+  /usr/bin/mktemp mrix,
+  /usr/bin/ngettext mrix,
+  /usr/bin/python-exec2c Ux,
+  /usr/bin/quoter mrix,
+  /usr/lib/portage/python*/ebuild.sh Ux,
+  /usr/lib/python-exec/python-exec2 Ux,
+  /portage/ r,
+  /portage/** r,
+  owner /tmp/** rwkl,
+  /var/cache/edb/ r,
+  /var/cache/edb/** r,
+  /var/cache/eix/ rw,
+  /var/cache/eix/** rwk,
+  /var/db/repos/ r,
+  /var/db/repos/** r,
+  /var/db/pkg/ r,
+  /var/db/pkg/** r,
+  /var/lib/portage/world r,
+  /var/lib/portage/world_sets r,
+
+}
