@@ -1,0 +1,36 @@
+# Last Modified: Sun May 17 22:05:00 2026
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/bin/mpv {
+  include <abstractions/consoles>
+  include <abstractions/desktop-app>
+  include <abstractions/video>
+
+  /dev/tty rw,
+  @{etc_ro}/mpv/ r,
+  @{etc_ro}/mpv/** r,
+  @{PROC}/@{pid}/task/*/comm rw,
+  /usr/bin/mpv mr,
+  owner @{HOME}/.cache/mpv/ rw,
+  owner @{HOME}/.cache/mpv/** rwk,
+  owner @{HOME}/.config/mpv/ r,
+  owner @{HOME}/.config/mpv/** r,
+  owner @{HOME}/.config/user-dirs.dirs r,
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/ r,
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/** r,
+  owner @{HOME}/@{XDG_DOCUMENTS_DIR}/ r,
+  owner @{HOME}/@{XDG_DOCUMENTS_DIR}/** r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** r,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/ r,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/** r,
+  owner @{HOME}/@{XDG_PICTURES_DIR}/ r,
+  owner @{HOME}/@{XDG_PICTURES_DIR}/** r,
+  owner @{HOME}/@{XDG_VIDEOS_DIR}/ r,
+  owner @{HOME}/@{XDG_VIDEOS_DIR}/** r,
+
+  include if exists <local/usr.bin.mpv>
+
+}
