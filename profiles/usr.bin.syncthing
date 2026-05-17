@@ -1,0 +1,49 @@
+# Last Modified: Sun May 17 18:55:00 2026
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/bin/syncthing {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+  include <abstractions/openssl>
+  include <abstractions/ssl_certs>
+
+  network inet stream,
+  network inet dgram,
+  network inet6 stream,
+  network inet6 dgram,
+  network netlink dgram,
+
+  @{etc_ro}/machine-id r,
+  @{etc_ro}/resolv.conf r,
+  @{PROC}/sys/fs/inotify/max_user_watches r,
+  @{PROC}/sys/kernel/hostname r,
+  @{PROC}/sys/kernel/random/boot_id r,
+  @{PROC}/sys/net/core/somaxconn r,
+  @{PROC}/@{pid}/cgroup r,
+  @{PROC}/@{pid}/fd/ r,
+  @{PROC}/@{pid}/mountinfo r,
+  @{PROC}/@{pid}/net/if_inet6 r,
+  @{PROC}/@{pid}/net/route r,
+  @{PROC}/@{pid}/stat r,
+  @{PROC}/@{pid}/task/ r,
+  @{PROC}/@{pid}/task/*/comm rw,
+  @{sys}/class/net/ r,
+  @{sys}/class/net/** r,
+  @{sys}/devices/system/cpu/** r,
+  @{sys}/fs/cgroup/openrc.syncthing/cpu.max r,
+  @{sys}/kernel/mm/transparent_hugepage/hpage_pmd_size r,
+  /usr/bin/syncthing mrix,
+  owner @{HOME}/ r,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/ rw,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/** rwk,
+  owner /var/lib/syncthing/.config/ r,
+  owner /var/lib/syncthing/.config/syncthing/ rw,
+  owner /var/lib/syncthing/.config/syncthing/** rwk,
+  owner /var/log/syncthing/ rw,
+  owner /var/log/syncthing/** rwk,
+
+  include if exists <local/usr.bin.syncthing>
+
+}
