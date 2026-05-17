@@ -1,0 +1,39 @@
+# Last Modified: Sun May 17 19:25:00 2026
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/sbin/chronyd flags=(attach_disconnected) {
+  include <abstractions/base>
+  include <abstractions/nameservice>
+
+  capability dac_override,
+  capability dac_read_search,
+  capability ipc_lock,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  capability sys_resource,
+  capability sys_time,
+
+  network inet dgram,
+  network inet6 dgram,
+  network netlink dgram,
+
+  @{etc_ro}/chrony/ r,
+  @{etc_ro}/chrony/** r,
+  @{etc_ro}/chrony.conf r,
+  @{etc_ro}/localtime r,
+  @{PROC}/sys/kernel/random/boot_id r,
+  @{PROC}/@{pid}/net/if_inet6 r,
+  @{PROC}/@{pid}/net/route r,
+  @{PROC}/@{pid}/stat r,
+  @{run}/chrony/ rw,
+  @{run}/chrony/** rwk,
+  /usr/sbin/chronyd mr,
+  /var/lib/chrony/ rw,
+  /var/lib/chrony/** rwk,
+  /var/log/chrony/ rw,
+  /var/log/chrony/** rwk,
+
+}
