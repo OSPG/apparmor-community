@@ -1,4 +1,4 @@
-# Last Modified: Sat Sep 20 14:08:56 2025
+# Last Modified: Tue May 19 00:05:00 2026
 include <tunables/global>
 
 /usr/bin/Telegram {
@@ -11,7 +11,7 @@ include <tunables/global>
   /dev/udmabuf rw,
   /etc/fstab r,
   /sys/class/power_supply/ r,
-  /usr/bin/Telegram mr,
+  /usr/bin/Telegram mrix,
   /usr/bin/xdg-open Px,
   /usr/share/thumbnailers/ r,
   owner /proc/*/mountinfo r,
@@ -26,7 +26,6 @@ include <tunables/global>
   owner @{HOME}/*/.config/menus/ r,
   owner @{HOME}/.cache/TelegramDesktop/** rw,
   owner @{HOME}/.cache/mozilla/** rw,
-  owner @{HOME}/.cache/qtshadercache-x86_64-little_endian-lp64/* rw,
   owner @{HOME}/.config/* rwlk,
   owner @{HOME}/.local/share/* rw,
   owner @{HOME}/.local/share/TelegramDesktop/ rw,

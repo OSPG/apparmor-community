@@ -32,15 +32,11 @@ include <tunables/global>
   /usr/share/icons/** r,
   /usr/share/xkeyboard-config-2/** r,
   /usr/share/xkeyboard-config-2/keycodes/* r,
-  owner @{HOME}/.cache/mesa_shader_cache_db/** rwk,
   owner @{HOME}/.cache/thunderbird/** rw,
   owner @{HOME}/.config/dconf/user r,
-  owner @{HOME}/.config/user-dirs.dirs r,
   owner @{PROC}/@{pid}/* rw,
   owner @{PROC}/@{pid}/task/** r,
   owner @{run}/user/*/* rw,
-  owner @{run}/user/*/dconf/user rw,
-  owner @{run}/user/*/pulse/ rw,
   owner @{HOME}/.thunderbird/** rwk,
 
 }

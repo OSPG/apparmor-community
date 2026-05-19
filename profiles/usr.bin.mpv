@@ -17,7 +17,6 @@ include <tunables/global>
   owner @{HOME}/.cache/mpv/** rwk,
   owner @{HOME}/.config/mpv/ r,
   owner @{HOME}/.config/mpv/** r,
-  owner @{HOME}/.config/user-dirs.dirs r,
   owner @{HOME}/@{XDG_DESKTOP_DIR}/ r,
   owner @{HOME}/@{XDG_DESKTOP_DIR}/** r,
   owner @{HOME}/@{XDG_DOCUMENTS_DIR}/ r,

@@ -1,10 +1,11 @@
-# Last Modified: Sat Aug 30 22:48:51 2025
+# Last Modified: Tue May 19 01:49:31 2026
 include <tunables/global>
 
 /usr/bin/quasselclient {
   include <abstractions/base>
   include <abstractions/bash>
   include <abstractions/consoles>
+  include <abstractions/desktop-app>
   include <abstractions/enchant>
   include <abstractions/gio-open>
   include <abstractions/gnome>
@@ -13,7 +14,11 @@ include <tunables/global>
   include <abstractions/openssl>
   include <abstractions/qt5>
   include <abstractions/ssl_certs>
+  include <abstractions/user-tmp>
   include <abstractions/vulkan>
+
+  network inet stream,
+  network inet6 stream,
 
   /dev/udmabuf rw,
   @{etc_ro}/host.conf r,
@@ -36,27 +41,31 @@ include <tunables/global>
   /usr/share/mime/packages/ r,
   /usr/share/qt6/translations/*.qm r,
   /usr/share/quassel/** r,
+  /usr/share/quassel/scripts/** rix,
   /usr/share/quassel/translations/*.qm r,
   owner @{HOME}/ r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ rw,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rwk,
   owner @{HOME}/.cache/* rw,
-  owner @{HOME}/.cache/icon-cache.kcache rw,
-  owner @{HOME}/.cache/mesa_shader_cache_db/** rwk,
-  owner @{HOME}/.cache/mesa_shader_cache_db/index rw,
   owner @{HOME}/.config/** rw,
-  owner @{HOME}/.config/breezerc r,
-  owner @{HOME}/.config/fontconfig/fonts.conf r,
-  owner @{HOME}/.config/kcminputrc r,
-  owner @{HOME}/.config/kdeglobals r,
-  owner @{HOME}/.config/kwinrc r,
-  owner @{HOME}/.config/quassel-irc.org/* rwkl,
+  owner @{HOME}/.config/quassel-irc.org/ rw,
+  owner @{HOME}/.config/quassel-irc.org/** rwkl,
+  owner @{HOME}/.config/quassel-irc.org/scripts/** rix,
+  owner @{HOME}/.config/quassel-irc.org/Quassel-Crash-*.log rw,
+  owner @{HOME}/.config/quassel-irc.org/settings.qss rw,
+  owner @{HOME}/.config/quassel-irc.org/quasselclient.conf rw,
+  owner @{HOME}/.config/quassel-irc.org/quasselclient.conf.lock rw,
+  owner @{HOME}/.config/quassel.notifyrc rw,
+  owner @{HOME}/.config/quassel.notifyrc.lock rw,
   owner @{HOME}/.config/quasselrc r,
   owner @{HOME}/.config/quasselrc.lock rw,
+  owner @{HOME}/.local/share/quassel/** r,
+  owner @{HOME}/.local/share/quassel/scripts/** rix,
   owner @{HOME}/.local/share/* rwlk,
-  owner @{HOME}/.local/share/icons/hicolor/icon-theme.cache r,
-  owner @{HOME}/.local/share/mime/generic-icons r,
-  owner @{HOME}/.local/share/mime/mime.cache r,
-  owner @{HOME}/.local/share/mime/packages/ r,
+  owner @{HOME}/.local/state/ rw,
+  owner @{HOME}/.local/state/#* rw,
+  owner @{HOME}/.local/state/quasselstaterc rw,
+  owner @{HOME}/.local/state/quasselstaterc.lock rw,
   owner @{run}/user/*/* rw,
-  owner @{run}/user/*/pulse/ rw,
 
 }

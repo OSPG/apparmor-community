@@ -27,7 +27,30 @@
   owner @{HOME}/.config/kcminputrc r,
   owner @{HOME}/.config/kdedefaults/kcminputrc r,
   owner @{HOME}/.config/breezerc r,
+  owner @{HOME}/.config/kdeglobals r,
+  owner @{HOME}/.config/kwinrc r,
   owner @{HOME}/.config/plasmarc r,
+
+  # Common desktop caches
+  owner @{HOME}/.cache/icon-cache.kcache rw,
+  owner @{HOME}/.cache/mesa_shader_cache/** rwk,
+  owner @{HOME}/.cache/mesa_shader_cache_db/** rwk,
+  owner @{HOME}/.cache/qtshadercache-*/** rwk,
+
+  # Common toolkit and XDG settings
+  owner @{HOME}/.config/fontconfig/fonts.conf r,
+  owner @{HOME}/.config/gtk-3.0/** r,
+  owner @{HOME}/.config/user-dirs.dirs r,
+
+  # Common icon and MIME caches
+  owner @{HOME}/.local/share/icons/hicolor/icon-theme.cache r,
+  owner @{HOME}/.local/share/mime/generic-icons r,
+  owner @{HOME}/.local/share/mime/mime.cache r,
+  owner @{HOME}/.local/share/mime/packages/ r,
+
+  # Common per-user desktop runtime files
+  owner @{run}/user/*/dconf/user rw,
+  owner @{run}/user/*/pulse/ rw,
 
   @{PROC}/@{pid}/cmdline r,
   @{sys}/devices/system/cpu/cpu[0-9]*/* r,

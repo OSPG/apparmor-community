@@ -1,4 +1,4 @@
-# Last Modified: Fri Sep 19 19:22:56 2025
+# Last Modified: Tue May 19 00:05:00 2026
 abi <abi/3.0>,
 
 include <tunables/global>
@@ -14,6 +14,7 @@ include <tunables/global>
   @{etc_ro}/env.d/python/config r,
   @{etc_ro}/python-exec/python-exec.conf r,
   @{sys}/block/ r,
+  @{sys}/devices/**/dev r,
   /tmp/** r,
   /usr/bin/gawk mrix,
   /usr/bin/kde-open mrix,
@@ -30,6 +31,7 @@ include <tunables/global>
   owner @{HOME}/.config/qBittorrent/** rwlk,
   owner @{HOME}/.config/qBittorrentrc rw,
   owner @{HOME}/.local/share/data/qBittorrent/** rwl,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
   owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rw,
   owner @{HOME}/@{XDG_MUSIC_DIR}/** rw,
   owner @{PROC}/*/cmdline r,
