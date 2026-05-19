@@ -1,12 +1,52 @@
-# Last Modified: Sat Aug 30 20:42:00 2025
+# Last Modified: Tue May 19 13:15:00 2026
+abi <abi/4.0>,
+
 include <tunables/global>
 
 /usr/bin/nheko {
+  include <abstractions/dbus-session-strict>
   include <abstractions/desktop-app>
+  include <abstractions/openssl>
+  include <abstractions/ssl_certs>
+  include <abstractions/user-tmp>
+  include <abstractions/video>
 
+  network inet stream,
+  network inet dgram,
+  network inet6 stream,
+  network inet6 dgram,
+  network netlink dgram,
+
+  /usr/bin/ r,
   /usr/bin/nheko mr,
-  owner @{HOME}/.cache/nheko/** rwl,
-  owner @{HOME}/.config/nheko/* rwlk,
+
+  @{PROC}/@{pid}/task/ r,
+  @{PROC}/@{pid}/task/*/comm rw,
+  owner @{PROC}/@{pid}/fd/ r,
+  owner @{PROC}/@{pid}/mountinfo r,
+  owner @{PROC}/@{pid}/stat r,
+
+  owner @{HOME}/ r,
+
+  owner @{HOME}/.cache/nheko/ rw,
+  owner @{HOME}/.cache/nheko/** rwkl,
+  owner @{HOME}/.config/nheko/ rw,
+  owner @{HOME}/.config/nheko/** rwkl,
   owner @{HOME}/.config/nhekorc rw,
-  owner @{HOME}/.local/share/nheko/nheko/** rwk,
+  owner @{HOME}/.config/nhekorc.lock rw,
+  owner @{HOME}/.local/share/nheko/ rw,
+  owner @{HOME}/.local/share/nheko/** rwkl,
+
+  owner @{HOME}/@{XDG_DOCUMENTS_DIR}/ r,
+  owner @{HOME}/@{XDG_DOCUMENTS_DIR}/** rw,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rw,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/ r,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/** rw,
+  owner @{HOME}/@{XDG_PICTURES_DIR}/ r,
+  owner @{HOME}/@{XDG_PICTURES_DIR}/** rw,
+  owner @{HOME}/@{XDG_VIDEOS_DIR}/ r,
+  owner @{HOME}/@{XDG_VIDEOS_DIR}/** rw,
+
+  include if exists <local/usr.bin.nheko>
 }

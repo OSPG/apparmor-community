@@ -1,4 +1,4 @@
-# Last Modified: Sun May 17 18:55:00 2026
+# Last Modified: Tue May 19 10:45:00 2026
 abi <abi/4.0>,
 
 include <tunables/global>
@@ -35,14 +35,32 @@ include <tunables/global>
   @{sys}/fs/cgroup/openrc.syncthing/cpu.max r,
   @{sys}/kernel/mm/transparent_hugepage/hpage_pmd_size r,
   /usr/bin/syncthing mrix,
+  /usr/bin/xdg-open Px,
   owner @{HOME}/ r,
-  owner @{HOME}/@{XDG_MUSIC_DIR}/ rw,
-  owner @{HOME}/@{XDG_MUSIC_DIR}/** rwk,
+
+  # Current Unix default for config, keys, database, logs, lock file, audit logs and GUI assets.
+  owner @{HOME}/.local/ rw,
+  owner @{HOME}/.local/state/ rw,
+  owner @{HOME}/.local/state/syncthing/ rw,
+  owner @{HOME}/.local/state/syncthing/** rwk,
+
+  # Legacy config/database locations retained by Syncthing when existing files are found.
+  owner @{HOME}/.config/ r,
+  owner @{HOME}/.config/syncthing/ rw,
+  owner @{HOME}/.config/syncthing/** rwk,
+  owner @{HOME}/.local/share/ r,
+  owner @{HOME}/.local/share/syncthing/ rw,
+  owner @{HOME}/.local/share/syncthing/** rwk,
+
+  # Gentoo service defaults.
   owner /var/lib/syncthing/.config/ r,
   owner /var/lib/syncthing/.config/syncthing/ rw,
   owner /var/lib/syncthing/.config/syncthing/** rwk,
   owner /var/log/syncthing/ rw,
   owner /var/log/syncthing/** rwk,
+
+  # Synced folder roots and external versioner commands are user configuration.
+  # Add them in local/usr.bin.syncthing.
 
   include if exists <local/usr.bin.syncthing>
 

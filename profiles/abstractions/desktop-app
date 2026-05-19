@@ -30,6 +30,7 @@
   owner @{HOME}/.config/kdeglobals r,
   owner @{HOME}/.config/kwinrc r,
   owner @{HOME}/.config/plasmarc r,
+  owner @{HOME}/.config/kdedefaults/plasmarc r,
 
   # Common desktop caches
   owner @{HOME}/.cache/icon-cache.kcache rw,

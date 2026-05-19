@@ -1,0 +1,3 @@
+# Local synced folder roots.
+owner @{HOME}/@{XDG_MUSIC_DIR}/ rw,
+owner @{HOME}/@{XDG_MUSIC_DIR}/** rwk,

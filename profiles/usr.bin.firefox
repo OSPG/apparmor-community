@@ -45,4 +45,6 @@ include <tunables/global>
   owner @{HOME}/Pictures/** rw,
   owner @{run}/user/*/* rw,
 
+  include if exists <local/usr.bin.firefox>
+
 }

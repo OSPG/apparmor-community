@@ -1,0 +1,50 @@
+# Local desktop handlers launched from Firefox.
+/usr/bin/qbittorrent cx -> &/usr/bin/firefox//qbittorrent,
+
+# qBittorrent/Qt probes the session while running under Firefox's no_new_privs
+# desktop-handler path.
+ptrace read peer=unconfined,
+
+owner @{HOME}/.cache/qBittorrent/** rwk,
+owner @{HOME}/.config/qBittorrent/** rwlk,
+owner @{HOME}/.config/qBittorrentrc rw,
+owner @{HOME}/.local/share/data/qBittorrent/** rwl,
+
+profile qbittorrent {
+  include <abstractions/bash>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/desktop-app>
+
+  network netlink dgram,
+
+  /dev/char/* w,
+  @{etc_ro}/env.d/python/config r,
+  @{etc_ro}/python-exec/python-exec.conf r,
+  @{sys}/block/ r,
+  @{sys}/devices/**/dev r,
+  /tmp/** r,
+  /usr/bin/gawk mrix,
+  /usr/bin/kde-open mrix,
+  /usr/bin/mpv Px,
+  /usr/bin/nvidia-modprobe Ux,
+  /usr/bin/okular Px,
+  /usr/bin/python-exec2c mrix,
+  /usr/bin/python3.13 mrix,
+  /usr/bin/python3.14 mrix,
+  /usr/bin/qbittorrent mr,
+  /usr/bin/xdg-open px,
+  owner /dev/shm/* rwl,
+  owner @{HOME}/.cache/qBittorrent/*/ rw,
+  owner @{HOME}/.config/qBittorrent/** rwlk,
+  owner @{HOME}/.config/qBittorrentrc rw,
+  owner @{HOME}/.local/share/data/qBittorrent/** rwl,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rw,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/** rw,
+  owner @{PROC}/*/cmdline r,
+  owner @{PROC}/*/comm r,
+  owner @{PROC}/*/mountinfo r,
+  owner @{PROC}/*/mounts r,
+  owner @{PROC}/*/stat r,
+  owner @{run}/user/*/* wl,
+}
