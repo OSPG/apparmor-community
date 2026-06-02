@@ -5,9 +5,18 @@ include <abstractions/kde>
 include <abstractions/vulkan>
 include <abstractions/dri-enumerate>
 include <abstractions/mesa>
+include <abstractions/opengl>
 include <abstractions/qt6>
-include <abstractions/ubuntu-browsers>
 
 capability sys_ptrace,
+/dev/tty w,
+@{PROC}/@{pid}/task/*/comm rw,
+@{sys}/devices/virtual/dmi/id/{bios_vendor,board_vendor,product_name,sys_vendor} r,
+/usr/ r,
+/usr/bin/rssguard mr,
+/{,usr/}bin/{basename,uname} ix,
+/bin/bash ix,
+/usr/bin/firefox rix,
+/usr/lib{,64}/firefox/firefox rPx -> /usr/bin/firefox,
 owner "@{HOME}/.config/RSS Guard 4/**" rwlk,
-
+owner "@{HOME}/.config/rssguard5/**" rwlk,
