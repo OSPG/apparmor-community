@@ -1,0 +1,44 @@
+# Last Modified: Wed May 27 10:26:38 2026
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/bin/Logic {
+  include <abstractions/base>
+  include <abstractions/chromium-app>
+
+  /dev/bus/usb/ r,
+  /dev/bus/usb/** rw,
+  /dev/char/* rw,
+  /dev/hidraw* rw,
+  /etc/fstab r,
+  /opt/Logic/ r,
+  /opt/Logic/** mr,
+  /opt/Logic/Logic mrix,
+  /opt/Logic/chrome-sandbox mrix,
+  /opt/Logic/chrome_crashpad_handler mrix,
+  /run/udev/data/* r,
+  /sys/bus/ r,
+  /sys/bus/usb/devices/ r,
+  /sys/bus/usb/devices/** r,
+  /sys/class/ r,
+  /sys/devices/** r,
+  /usr/bin/Logic mrix,
+
+  owner @{HOME}/ r,
+  owner @{HOME}/.cache/Logic/ rw,
+  owner @{HOME}/.cache/Logic/** rwlk,
+  owner @{HOME}/.config/Logic/ rw,
+  owner @{HOME}/.config/Logic/** rwlk,
+  owner @{HOME}/.local/share/Logic/ rw,
+  owner @{HOME}/.local/share/Logic/** rwlk,
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/ r,
+  owner @{HOME}/@{XDG_DESKTOP_DIR}/** rw,
+  owner @{HOME}/@{XDG_DOCUMENTS_DIR}/ r,
+  owner @{HOME}/@{XDG_DOCUMENTS_DIR}/** rw,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rw,
+
+  include if exists <local/usr.bin.Logic>
+
+}
