@@ -25,6 +25,8 @@ include <tunables/global>
   @{sys}/devices/virtual/dmi/id/* r,
   @{sys}/fs/cgroup/**/cpu.max r,
   /usr/bin/firefox Px,
+  /usr/bin/libreoffice PUx,
+  /usr/lib{,64}/libreoffice/program/soffice PUx,
   /usr/lib64/thunderbird/glxtest mrix,
   /usr/lib64/thunderbird/thunderbird Px,
   /usr/lib64/thunderbird/thunderbird mr,

@@ -19,6 +19,7 @@ include <tunables/global>
   @{sys}/bus/usb/devices/ r,
   @{sys}/class/ r,
   @{sys}/devices/system/cpu/* r,
+  /usr/bin/digikam mr,
   /usr/bin/exiftool mrix,
   /usr/bin/mariadb-admin Ux,
   /usr/bin/mariadb-install-db Ux,

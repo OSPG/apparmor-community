@@ -41,7 +41,10 @@
   # Common toolkit and XDG settings
   owner @{HOME}/.config/fontconfig/fonts.conf r,
   owner @{HOME}/.config/gtk-3.0/** r,
+  owner @{HOME}/.config/QtProject.conf rw,
   owner @{HOME}/.config/user-dirs.dirs r,
+  owner @{HOME}/.local/state/kdirselectstaterc rwk,
+  owner @{HOME}/.local/state/kdirselectstaterc.lock rwk,
 
   # Common icon and MIME caches
   owner @{HOME}/.local/share/icons/hicolor/icon-theme.cache r,
