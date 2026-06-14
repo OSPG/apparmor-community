@@ -17,6 +17,8 @@ include <tunables/global>
 
   @{etc_ro}/machine-id r,
   @{etc_ro}/resolv.conf r,
+  @{PROC}/bus/pci/devices r,
+  @{PROC}/modules r,
   @{PROC}/sys/fs/inotify/max_user_watches r,
   @{PROC}/sys/kernel/hostname r,
   @{PROC}/sys/kernel/random/boot_id r,
@@ -27,6 +29,7 @@ include <tunables/global>
   @{PROC}/@{pid}/net/if_inet6 r,
   @{PROC}/@{pid}/net/route r,
   @{PROC}/@{pid}/stat r,
+  @{PROC}/@{pid}/statm r,
   @{PROC}/@{pid}/task/ r,
   @{PROC}/@{pid}/task/*/comm rw,
   @{sys}/class/net/ r,

@@ -6,6 +6,7 @@ include <tunables/global>
 /opt/jellyfin/jellyfin {
   include <abstractions/base>
   include <abstractions/dri-enumerate>
+  include <abstractions/fonts>
   include <abstractions/nameservice>
   include <abstractions/nvidia>
   include <abstractions/openssl>
@@ -32,20 +33,22 @@ include <tunables/global>
   @{etc_rw}/jellyfin/ r,
   @{etc_rw}/jellyfin/** rwk,
   @{HOME}/ r,
+  @{HOME}/@{XDG_MUSIC_DIR}/ r,
+  @{HOME}/@{XDG_MUSIC_DIR}/** rk,
   @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
   @{HOME}/@{XDG_DOWNLOAD_DIR}/Anime/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Anime/** r,
+  @{HOME}/@{XDG_DOWNLOAD_DIR}/Anime/** rk,
   @{HOME}/@{XDG_DOWNLOAD_DIR}/Films/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Films/** r,
+  @{HOME}/@{XDG_DOWNLOAD_DIR}/Films/** rk,
   @{HOME}/@{XDG_DOWNLOAD_DIR}/Series/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Series/** r,
+  @{HOME}/@{XDG_DOWNLOAD_DIR}/Series/** rk,
   /opt/jellyfin/ r,
   /opt/jellyfin/** mrk,
   /opt/jellyfin/jellyfin mr,
   @{PROC}/sys/fs/inotify/max_user_watches r,
   @{PROC}/sys/kernel/random/boot_id r,
   @{PROC}/sys/net/ipv4/conf/*/forwarding rk,
-  @{PROC}/sys/net/ipv4/ip_forward r,
+  @{PROC}/sys/net/ipv4/ip_forward rk,
   @{PROC}/1/cgroup rk,
   @{PROC}/@{pid}/cgroup r,
   @{PROC}/@{pid}/mountinfo r,

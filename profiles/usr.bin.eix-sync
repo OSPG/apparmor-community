@@ -11,6 +11,7 @@ include <tunables/global>
 
   capability dac_override,
   capability fowner,
+  capability fsetid,
   capability setgid,
   capability setuid,
 
@@ -26,6 +27,7 @@ include <tunables/global>
   /bin/rm mrix,
   /bin/tar mrix,
   /etc/eix-sync.conf r,
+  /etc/xattr.conf r,
   /etc/eixrc/ r,
   /etc/eixrc/** r,
   /etc/portage/ r,
