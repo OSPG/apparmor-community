@@ -38,7 +38,7 @@
   owner @{HOME}/.cache/#* rwlk,
   owner @{HOME}/.cache/mesa_shader_cache/** rwk,
   owner @{HOME}/.cache/mesa_shader_cache_db/** rwk,
-  owner @{HOME}/.cache/qtshadercache-*/** rwk,
+  owner @{HOME}/.cache/qtshadercache-*/** rwlk,
 
   # Common toolkit and XDG settings
   /etc/xdg/menus/ r,

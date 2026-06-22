@@ -1,4 +1,4 @@
-# Last Modified: Fri Sep 19 00:53:14 2025
+# Last Modified: Wed Jun 03 00:00:00 2026
 include <tunables/global>
 
 /usr/lib64/thunderbird/thunderbird {
@@ -7,6 +7,7 @@ include <tunables/global>
 
   capability sys_admin,
   capability sys_chroot,
+  capability sys_ptrace,
 
   /dev/ r,
   @{etc_ro}/gai.conf r,

@@ -1,4 +1,4 @@
-# Last Modified: Tue May 19 02:07:00 2026
+# Last Modified: Wed Jun 03 00:00:00 2026
 include <tunables/global>
 
 /usr/bin/Telegram {
@@ -13,7 +13,7 @@ include <tunables/global>
   /sys/class/power_supply/ r,
   /usr/bin/Telegram mrix,
   /usr/bin/update-desktop-database mrix,
-  /usr/bin/xdg-open Px,
+  /usr/bin/xdg-open mrix,
   /usr/share/thumbnailers/ r,
   owner /proc/*/mountinfo r,
   owner /proc/*/stat r,
