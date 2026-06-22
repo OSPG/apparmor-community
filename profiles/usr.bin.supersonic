@@ -1,0 +1,84 @@
+# Last Modified: Tue Jun 02 00:00:00 2026
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/bin/supersonic {
+  include <abstractions/base>
+  include <abstractions/consoles>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/desktop-app>
+  include <abstractions/fonts>
+  include <abstractions/gio-open>
+  include <abstractions/openssl>
+  include <abstractions/ssl_certs>
+  include <abstractions/user-tmp>
+
+  network inet dgram,
+  network inet stream,
+  network inet6 dgram,
+  network inet6 stream,
+  network netlink dgram,
+  network netlink raw,
+  network unix stream,
+
+  deny /dev/input/event* r,
+
+  /dev/char/* rw,
+  /dev/shm/ r,
+  /dev/udmabuf rw,
+  /etc/machine-id r,
+  @{etc_ro}/mpv/ r,
+  @{etc_ro}/mpv/** r,
+  @{PROC}/@{pid}/task/ r,
+  @{PROC}/@{pid}/task/*/comm rw,
+  @{PROC}/sys/kernel/random/boot_id r,
+  @{sys}/devices/** r,
+  /run/udev/data/* r,
+  /usr/bin/kde-open mrix,
+  /usr/bin/notify-send mrix,
+  /usr/bin/supersonic mr,
+  /usr/bin/supersonic_portable/ r,
+  /usr/bin/xdg-open px,
+  /usr/share/applications/supersonic.desktop r,
+  /usr/share/icons/hicolor/**/apps/supersonic.png r,
+  /usr/share/supersonic/ r,
+  /usr/share/supersonic/** r,
+  owner /dev/shm/** rwlk,
+  owner @{HOME}/ r,
+  owner @{HOME}/.cache/font_index_v*.cache rw,
+  owner @{HOME}/.cache/fyne/ rw,
+  owner @{HOME}/.cache/fyne/** rwlk,
+  owner @{HOME}/.cache/supersonic/ rw,
+  owner @{HOME}/.cache/supersonic/** rwlk,
+  owner @{HOME}/.config/fyne/ rw,
+  owner @{HOME}/.config/fyne/** rwlk,
+  owner @{HOME}/.config/mpv/ r,
+  owner @{HOME}/.config/mpv/** r,
+  owner @{HOME}/.config/supersonic/ rw,
+  owner @{HOME}/.config/supersonic/**/ rw,
+  owner @{HOME}/.config/supersonic/eq_presets/ rw,
+  owner @{HOME}/.config/supersonic/** rwlk,
+  owner @{HOME}/.fonts/ r,
+  owner @{HOME}/.fonts/** r,
+  owner @{HOME}/.local/share/fonts/ r,
+  owner @{HOME}/.local/share/fonts/** r,
+  owner @{HOME}/.local/share/supersonic/ rw,
+  owner @{HOME}/.local/share/supersonic/** rwlk,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
+  owner @{HOME}/@{XDG_DOWNLOAD_DIR}/** rw,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/ r,
+  owner @{HOME}/@{XDG_MUSIC_DIR}/** rw,
+  owner @{PROC}/@{pid}/cgroup r,
+  owner @{PROC}/@{pid}/fd/ r,
+  owner @{PROC}/@{pid}/mountinfo r,
+  owner @{PROC}/@{pid}/stat r,
+  owner @{PROC}/@{pid}/statm r,
+  owner @{PROC}/@{pid}/status r,
+  owner @{run}/user/*/* rwlk,
+  owner @{run}/user/*/supersonic.sock rw,
+  owner /tmp/supersonic-*.sock rw,
+
+  include if exists <local/usr.bin.supersonic>
+
+}
