@@ -42,4 +42,6 @@ include <tunables/global>
   owner @{run}/user/*/* rw,
   owner @{HOME}/.thunderbird/** rwk,
 
+  include if exists <local/usr.lib64.thunderbird.thunderbird>
+
 }
