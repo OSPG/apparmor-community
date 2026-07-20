@@ -1,4 +1,5 @@
 # Local desktop handlers launched from Thunderbird.
 /bin/bash ix,
-/usr/bin/{firefox,kwrite,mupdf,mupdf-gl} r,
+/usr/bin/firefox rPx,
+/usr/bin/{kwrite,mupdf,mupdf-gl} rPUx,
 /usr/bin/feh PUx,
