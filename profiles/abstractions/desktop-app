@@ -21,6 +21,7 @@
   include <abstractions/wayland>
   include <abstractions/nvidia>
 
+  /etc/cups/client.conf r,
   /etc/timezone r,
 
   #For KDE apps
@@ -60,5 +61,14 @@
   owner @{run}/user/*/dconf/user rw,
   owner @{run}/user/*/pulse/ rw,
 
+  # Common runtime probes used by browser and desktop toolkits
+  @{PROC}/cmdline r,
+  @{PROC}/sys/net/core/somaxconn r,
   @{PROC}/@{pid}/cmdline r,
+  @{sys}/bus/ r,
+  @{sys}/bus/dax/devices/ r,
+  @{sys}/class/ r,
+  @{sys}/devices/system/node/online r,
+  @{sys}/devices/system/node/node[0-9]*/cpumap r,
   @{sys}/devices/system/cpu/cpu[0-9]*/* r,
+  @{sys}/fs/cgroup/[0-9]*/{cpu.max,cpuset.cpus.effective,cpuset.mems.effective} r,

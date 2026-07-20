@@ -1,1 +1,2 @@
 capability dac_override,
+/dev/console w,
