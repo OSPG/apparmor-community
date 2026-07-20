@@ -63,9 +63,10 @@ include <tunables/global>
   owner @{HOME}/.local/share/quassel/scripts/** rix,
   owner @{HOME}/.local/share/* rwlk,
   owner @{HOME}/.local/state/ rw,
-  owner @{HOME}/.local/state/#* rw,
-  owner @{HOME}/.local/state/quasselstaterc rw,
-  owner @{HOME}/.local/state/quasselstaterc.lock rw,
+  owner @{HOME}/.local/state/#* rwlk,
+  owner @{HOME}/.local/state/quasselstaterc rwk,
+  owner @{HOME}/.local/state/quasselstaterc.* rwlk,
+  owner @{HOME}/.local/state/quasselstaterc.lock rwk,
   owner @{run}/user/*/* rw,
 
 }
