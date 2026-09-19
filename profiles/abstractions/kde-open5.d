@@ -1,6 +1,7 @@
 # Gentoo/Plasma 6 URL helper and its normal desktop side effects.
 /usr/bin/kde-open rix,
 /usr/bin/firefox rPx,
+/usr/bin/okular rPx,
 /usr/share/knotifications6/* r,
 owner @{PROC}/@{pid}/mountinfo r,
 owner @{HOME}/.local/share/#* rw,
@@ -8,3 +9,5 @@ owner @{HOME}/.local/share/recently-used.xbel rwk,
 owner @{HOME}/.local/share/recently-used.xbel.lock rwk,
 owner @{run}/user/*/#* rwlk,
 owner @{run}/user/*/kde-open*.kioworker.socket rwlk,
+/usr/share/desktop-directories/ r,
+/usr/share/desktop-directories/*.directory r,

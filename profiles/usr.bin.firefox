@@ -1,4 +1,4 @@
-# Last Modified: Tue Jul  7 19:53:00 2026
+# Last Modified: Sat Aug  8 00:49:00 2026
 include <tunables/global>
 
 /usr/bin/firefox {
@@ -23,7 +23,7 @@ include <tunables/global>
   /sys/devices/system/cpu/present r,
   /sys/fs/cgroup/2/* r,
   /sys/fs/cgroup/[0-9]*/cpu.max r,
-  /usr/bin/ark Px,
+  /usr/bin/ark PUx,
   /usr/bin/firefox r,
   /usr/bin/plasma-browser-integration-host mrix,
   /usr/bin/speech-dispatcher PUx,

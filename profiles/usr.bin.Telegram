@@ -1,4 +1,4 @@
-# Last Modified: Wed Jun 03 00:00:00 2026
+# Last Modified: Tue Jul  7 20:32:00 2026
 include <tunables/global>
 
 /usr/bin/Telegram {
@@ -10,11 +10,30 @@ include <tunables/global>
 
   /dev/udmabuf rw,
   /etc/fstab r,
+  @{PROC}/cmdline r,
+  @{sys}/bus/ r,
+  @{sys}/bus/dax/devices/ r,
   /sys/class/power_supply/ r,
+  @{sys}/class/ r,
+  @{sys}/devices/system/node/node*/hugepages{/,/**} r,
+  @{sys}/devices/system/node/online r,
+  @{sys}/devices/system/node/node*/cpumap r,
+  @{sys}/fs/cgroup/**/cpu.max r,
+  @{sys}/fs/cgroup/**/cpuset.cpus.effective r,
+  @{sys}/fs/cgroup/**/cpuset.mems.effective r,
   /usr/bin/Telegram mrix,
+  /usr/bin/firefox Px,
   /usr/bin/update-desktop-database mrix,
   /usr/bin/xdg-open mrix,
+  /usr/libexec/kf6/kioworker mrix,
   /usr/share/thumbnailers/ r,
+  /usr/share/thumbnailers/* r,
+  /tmp/.ICE-unix/ r,
+  /tmp/.X11-unix/ r,
+  /var/ r,
+  deny /tmp/{elogs,jellyfin,portage}/{,**} r,
+  deny signal (send) set=(term) peer=/usr/bin/syncthing,
+  deny signal (send) set=(term) peer=unconfined,
   owner /proc/*/mountinfo r,
   owner /proc/*/stat r,
   owner /proc/*/task/** rw,
@@ -31,6 +50,7 @@ include <tunables/global>
   owner @{HOME}/.config/autostart/ rw,
   owner @{HOME}/.config/autostart/org.telegram.desktop*.desktop rw,
   owner @{HOME}/.local/share/ rw,
+  owner @{HOME}/.local/share/#* rw,
   owner @{HOME}/.local/share/TelegramDesktop/{,**} rwlk,
   owner @{HOME}/.local/share/applications/ rw,
   owner @{HOME}/.local/share/applications/appimagekit_*-Telegram_Desktop.desktop rw,
@@ -47,6 +67,7 @@ include <tunables/global>
   owner @{HOME}/.local/share/icons/hicolor/symbolic/ rw,
   owner @{HOME}/.local/share/icons/hicolor/symbolic/apps/ rw,
   owner @{HOME}/.local/share/icons/hicolor/symbolic/apps/*-symbolic.svg rw,
+  owner @{HOME}/.local/share/recently-used.xbel* rwk,
   owner @{HOME}/.local/state/* rw,
   owner @{HOME}/Documents/** rw,
   owner @{HOME}/Downloads/** rw,

@@ -21,6 +21,9 @@
   include <abstractions/wayland>
   include <abstractions/nvidia>
 
+  # NVIDIA userspace may try to clean up root-managed device links.
+  deny /dev/char/195:* w,
+
   /etc/cups/client.conf r,
   /etc/timezone r,
 

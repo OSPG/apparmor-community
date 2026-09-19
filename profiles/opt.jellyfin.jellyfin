@@ -1,4 +1,4 @@
-# Last Modified: Sun May 17 14:10:00 2026
+# Last Modified: Tue Aug 11 21:05:00 2026
 abi <abi/4.0>,
 
 include <tunables/global>
@@ -35,13 +35,10 @@ include <tunables/global>
   @{HOME}/ r,
   @{HOME}/@{XDG_MUSIC_DIR}/ r,
   @{HOME}/@{XDG_MUSIC_DIR}/** rk,
+  @{HOME}/@{XDG_VIDEOS_DIR}/ r,
+  @{HOME}/@{XDG_VIDEOS_DIR}/** rk,
   @{HOME}/@{XDG_DOWNLOAD_DIR}/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Anime/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Anime/** rk,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Films/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Films/** rk,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Series/ r,
-  @{HOME}/@{XDG_DOWNLOAD_DIR}/Series/** rk,
+  @{HOME}/@{XDG_DOWNLOAD_DIR}/** rk,
   /opt/jellyfin/ r,
   /opt/jellyfin/** mrk,
   /opt/jellyfin/jellyfin mr,
@@ -52,6 +49,7 @@ include <tunables/global>
   @{PROC}/1/cgroup rk,
   @{PROC}/@{pid}/cgroup r,
   @{PROC}/@{pid}/mountinfo r,
+  @{PROC}/@{pid}/mounts r,
   @{PROC}/@{pid}/net/ipv6_route rk,
   @{PROC}/@{pid}/net/route rk,
   @{PROC}/@{pid}/stat r,
